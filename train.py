@@ -43,12 +43,14 @@ def setup_parser(parser):
         "-e",
         required=False,
         default=40,
+        type = int,
         help="number of epochs",
     )
     parser.add_argument(
         "--batch_size",
         "-bs",
         required=False,
+        type = int,
         default=16,
         help="batch_size",
     )
@@ -57,12 +59,14 @@ def setup_parser(parser):
         "-lr",
         required=False,
         default=3e-4,
+        type = float,
         help="learning rate",
     )
     parser.add_argument(
         "--weight_decay",
         "-wd",
         required=False,
+        type = float,
         default=0.0,
         help="weight decay",
     )
@@ -71,6 +75,7 @@ def setup_parser(parser):
         "-wb",
         required=False,
         default=0.7,
+        type = float,
         help="weight_bce",
     )
 

@@ -1,4 +1,4 @@
-#!/bin/bash
-gdown --id 1euOGyo8jzP-iJF_WMuwTtBzrRsvQ4h3c -O ./data/dataset.zip
+mkdir data
+gdown --id 1wknTL9cLdznYSBr383wAhYHF1DS_9iuN -O ./data/dataset.zip
 unzip ./data/dataset.zip -d ./data/
 rm ./data/dataset.zip
