@@ -1,13 +1,72 @@
-# MILTestTask - OCR
+```
+│   README.md
+│   requirements.txt
+│   text
+│   
+├───data
+├───eda
+│       layout.ipynb
+│       
+├───models
+│       best.pth
+│       
+├───scripts
+│       download_dataset.sh
+│       
+└───src
+    │   constants.py
+    │   predict.py
+    │   train.py
+    │   
+    ├───datasets
+    │       datasets.py
+    │       __init__.py
+    │       
+    ├───model
+    │       model.py
+    │       __init__.py
+    │       
+    ├───transforms
+    │       transforms.py
+    │       __init__.py
+    │       
+    └───utils
+            losses.py
+            __init__.py
+```
 
-Мы предлагаем обучить модель для решения задачи Layout Detection на нашем [датасете](https://drive.google.com/file/d/1euOGyo8jzP-iJF_WMuwTtBzrRsvQ4h3c/view?usp=sharing).  
-В архиве есть папка `data` с изображениями, и 2 json файла в [формате COCO для задачи detection](https://cocodataset.org/#format-data), c train и test частями соответственно. 
-Данные для сегментации приведены в формате полигонов.
-  
-Для работы с форматом COCO рекомендуется использовать библиотеку `pycocotools`.
+   
+Assuming that current directory is root of git repository you should make next steps
+1) download dataset and best model
+```               
+    ./scripts/download_dataset.sh
+    ./scripts/download_best_model.sh
 
-Код необходимый для получения результатов обучения модели нужно приложить в форке этого репозитория.  
-Отчет по процессу решения и итоговым результатам желательно оформить как jupyter ноутбук с метриками mean IoU для тестовой и трейновой частей.
+```
 
-Перед решением рекомендуется взглянуть на датасет. 
-В качестве базовых решений предлагаем ознакомиться со статьями [раз](https://arxiv.org/pdf/1512.02325.pdf) и [два](https://link.springer.com/chapter/10.1007/978-3-319-95957-3_30).
+2) Create and activate new environment:
+```
+    Installation (for Windows):
+    python -m venv .venv
+    .venv\Scripts\activate.bat
+    pip install -r requirements_loc.txt
+
+    Installation (for Linux):
+    python -m venv .venv
+    source .venv/bin/activate
+    pip install -r requirements_loc.txt
+```
+
+2) try to predict test data (test.json and folder data should be) 
+```
+    python ./src/predict.py -dd  ./data -md ./models -mn best.pth
+
+```
+3) try to train model
+    python ./src/train.py  -dd ./data -md ./models -mn best_trained.pth --epochs 40
+
+Link to notebook
+https://colab.research.google.com/drive/1igQ1D3VqowJpzjANe8hjG5_4OlHwSltQ?usp=sharing
+
+
+
