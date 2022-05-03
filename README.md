@@ -61,9 +61,9 @@ Assuming that current directory is root of git repository you should make next s
     python predict.py -dd  ./data -md ./models -mn best.pth
 
 ```
-3) try to train model
+3) try to train model (parameters of training coulf be changed, use help)
 ```
-    python ./src/train.py  -dd ./data -md ./models -mn best_trained.pth --epochs 40
+    python train.py  -dd ./data -md ./models -mn best_trained.pth --epochs 40
 ```
 
 Link to notebook
